@@ -92,6 +92,7 @@ export const estimateStepUpdated = createTrigger({
     },
     type: TriggerStrategy.WEBHOOK,
     async onEnable(context){
+      console.log('onEnable');
       const token = (context.auth as OAuth2PropertyValue).access_token;
       const events = ['estimate.step'];
       const request: HttpRequest = {
@@ -103,7 +104,7 @@ export const estimateStepUpdated = createTrigger({
         },
         body: {
           configuration: events.map(event => ({ id: event, is_enabled: true })),
-          endpoint: context.webhookUrl.replace('http://127.0.0.1:4200', 'https://6706-154-50-5-114.ngrok-free.app'),
+          endpoint: context.webhookUrl.replace('http://127.0.0.1:4200', 'https://e3ef-154-50-5-114.ngrok-free.app'),
           is_enabled: true,
           type: "http"
         }

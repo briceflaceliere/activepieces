@@ -72,7 +72,7 @@ export const updateOpportunityStatus = createAction({
 
     const request: HttpRequest = {
       method: HttpMethod.PUT,
-      url: `https://api.slsy.io/v2/oppgortunities/${id}`,
+      url: `https://api.slsy.io/v2/opportunities/${id}`,
       authentication: {
         type: AuthenticationType.BEARER_TOKEN,
         token,
