@@ -2,21 +2,21 @@ services:
   db:
     image: postgres:14.4
     environment:
-      POSTGRES_DB: activepieces
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: A79Vm5D4p2VQHOp2gd5
+      - 'POSTGRES_DB=${AP_POSTGRES_DATABASE}'
+      - 'POSTGRES_PASSWORD=${AP_POSTGRES_PASSWORD}'
+      - 'POSTGRES_USER=${AP_POSTGRES_USERNAME}'
 
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5434:5432"
 
   redis:
     image: redis:7.0.7
     volumes:
       - redis_data:/data
     ports:
-      - "6379:6379"
+      - "6378:6379"
 
 volumes:
   postgres_data:
